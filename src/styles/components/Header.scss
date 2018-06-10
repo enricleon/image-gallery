@@ -1,0 +1,25 @@
+@import "../common/settings";
+
+$header-vertical-padding: 8px;
+$header-horizontal-padding: 24px;
+$header-shadow-color: #333;
+
+.header {
+    position: fixed;
+    z-index: 1;
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+
+    background-color: white;
+    padding: $header-vertical-padding $header-horizontal-padding;
+    top: 0px;
+    width: 100vw;
+    min-width: map-get($settings, 'header-min-width');
+
+    box-shadow: 0px 0px 5px 0px $header-shadow-color;
+
+    &-logo {
+      height: map-get($settings, 'header-height') - ($header-vertical-padding * 2);
+    }
+}

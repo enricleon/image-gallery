@@ -1,45 +1,69 @@
-**Edit a file, create a new file, and clone from Bitbucket in under 2 minutes**
+# Image Gallery for React.js using Node.js API
 
-When you're done, you can delete the content in this README and update the file with details for others getting started with your repository.
+This gallery has been developed using [create-react-app-ts](https://github.com/wmonk/create-react-app-typescript) along with sass for the frontend.
 
-*We recommend that you open this README in another tab as you perform the tasks below. You can [watch our video](https://youtu.be/0ocf7u76WSo) for a full demo of all the steps in this tutorial. Open the video in a new tab to avoid leaving Bitbucket.*
+The backend API is using a basic Express.js structure for the API.
 
----
+## How to install
 
-## Edit a file
+In order to install this example app, you need to install all the dependencies of the project
 
-You’ll start by editing this README file to learn how to edit a file in Bitbucket.
+```
+npm install
+```
 
-1. Click **Source** on the left side.
-2. Click the README.md link from the list of files.
-3. Click the **Edit** button.
-4. Delete the following text: *Delete this line to make a change to the README from Bitbucket.*
-5. After making your change, click **Commit** and then **Commit** again in the dialog. The commit page will open and you’ll see the change you just made.
-6. Go back to the **Source** page.
+The testing setup is currently using mocha for the Backend tests. It needs to be installed globally:
 
----
+```
+npm install -g mocha
+```
 
-## Create a file
+To run the tests simply execute:
 
-Next, you’ll add a new file to this repository.
+```
+npm run server:test
+```
 
-1. Click the **New file** button at the top of the **Source** page.
-2. Give the file a filename of **contributors.txt**.
-3. Enter your name in the empty file space.
-4. Click **Commit** and then **Commit** again in the dialog.
-5. Go back to the **Source** page.
+Currently, there is only one test as this is only an example.
 
-Before you move on, go ahead and explore the repository. You've already seen the **Source** page, but check out the **Commits**, **Branches**, and **Settings** pages.
+In order to start the app:
 
----
+```
+npm run build
+npm run server
+```
 
-## Clone a repository
+If we don't want to re-run the server every time we change something on the front code, we need to run the build command in watch mode:
 
-Use these steps to clone from SourceTree, our client for using the repository command-line free. Cloning allows you to work on your files locally. If you don't yet have SourceTree, [download and install first](https://www.sourcetreeapp.com/). If you prefer to clone from the command line, see [Clone a repository](https://confluence.atlassian.com/x/4whODQ).
+```
+npm run build:watch
+```
 
-1. You’ll see the clone button under the **Source** heading. Click that button.
-2. Now click **Check out in SourceTree**. You may need to create a SourceTree account or log in.
-3. When you see the **Clone New** dialog in SourceTree, update the destination path and name if you’d like to and then click **Clone**.
-4. Open the directory you just created to see your repository’s files.
+And in another process start the server:
 
-Now that you're more familiar with your Bitbucket repository, go ahead and add a new file locally. You can [push your change back to Bitbucket with SourceTree](https://confluence.atlassian.com/x/iqyBMg), or you can [add, commit,](https://confluence.atlassian.com/x/8QhODQ) and [push from the command line](https://confluence.atlassian.com/x/NQ0zDQ).
+```
+npm run server
+```
+
+This will open the port 8080, so the website will be available through [http://localhost:8080]
+
+## Development
+
+In order to develop this image gallery example, I have used the create-react-app setup along with typescript and sass. 
+
+Typescript is a very powerful tool that gives the developer some features that makes development a lot easier.
+This project also uses sass. There is a _settings.scss file in the root style forder with some configuration.
+
+This is a Server Side Rendered React application. All the requests will go through the node.js web server and then will be processed by the React router in the client if the don't match any route in the server.
+
+All the images are lazy loaded, so they are only requested on demand if they are to be displayed. When the server requests the images to the FlickrAPI, it also requests some sizes of the image. The frontend then, uses these sizes (thumbnail, medium, original) depending on when the image is being visualized.
+
+For the gallery, the thumbnail is used initialy with a blur filter in order to give some feedback to the user even if we don't have the image yet. When the image is loaded, this blur filter in the thumbnail disappears.
+
+When the user clicks one of the images, the lightbox is opened with the original size image. It also loads 3 more images from the left and from the right in order to have it ready before the user starts navigating.
+
+The gallery is responsive. Each image is set to be displayed at 350px aprox, so there will be as many columns of this width as it is possible depending on the window size.
+
+Last but not least, this is an infinite scrolling gallery. Once the user reaches the bottom of the page (or maybe a little bit before), the next set (page) of images are rendered for that search.
+
+

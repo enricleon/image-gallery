@@ -1,0 +1,22 @@
+@import "./common/settings";
+
+.app {
+  display: flex; 
+  min-height: 100vh; 
+
+  text-align: center;
+
+  &-body {
+    font-size: large;
+    margin-top: map-get($settings, 'header-height') + map-get($settings, 'header-border-size');
+    width: 100vw;
+    min-width: map-get($settings, 'header-min-width');
+    flex: 1;
+
+    background-color: #f4f4f4;
+
+    img[src="/img/logo.png"] {
+        width: auto;
+    }
+  }
+}

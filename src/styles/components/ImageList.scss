@@ -1,0 +1,19 @@
+@import "../common/settings";
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0 4px;
+
+    /* Create four equal columns that sits next to each other */
+    .column {
+        flex: 1;
+        max-width: 342px;
+        padding: 0 4px;
+
+        img {
+            width: 100%;
+
+        }
+    } 
+}
