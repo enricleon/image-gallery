@@ -54,7 +54,15 @@ In order to develop this image gallery example, I have used the create-react-app
 Typescript is a very powerful tool that gives the developer some features that makes development a lot easier.
 This project also uses sass. There is a _settings.scss file in the root style forder with some configuration.
 
-This is a Server Side Rendered React application. All the requests will go through the node.js web server and then will be processed by the React router in the client if the don't match any route in the server.
+This is a Server Side Rendered React application. All the requests will go through the Node.js web server. Then, the html will be served with the main component injected, and once rendered, the bundles will be requested. These would be served through the static files route in node. The server is using a StaticRouter in order to serve the main component. The client is using BrowserRouter. When a request to the server doesn't match any server route (static files, root and API) the client would handle his 404 route.
+
+There is only one route for the API:
+
+```
+/api/v1/images/:searchTerm?limit=25&page=1
+```
+
+The limit handles how many images are to be displayed per page.
 
 All the images are lazy loaded, so they are only requested on demand if they are to be displayed. When the server requests the images to the FlickrAPI, it also requests some sizes of the image. The frontend then, uses these sizes (thumbnail, medium, original) depending on when the image is being visualized.
 
