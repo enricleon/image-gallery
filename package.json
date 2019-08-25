@@ -23,7 +23,7 @@
     "mocha": "^5.2.0",
     "moment": "^2.22.2",
     "react": "^16.4.0",
-    "react-dom": "^16.4.0",
+    "react-dom": "^16.4.2",
     "react-fontawesome": "^1.6.1",
     "react-lazy-load-image-component": "^1.1.1",
     "react-lazyload-fadein": "^1.1.0",
