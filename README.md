@@ -2,7 +2,7 @@
 
 This gallery has been developed using [create-react-app-ts](https://github.com/wmonk/create-react-app-typescript) along with sass for the frontend.
 
-The backend API is using a basic Express.js structure for the API.
+The backend API is using a basic Express.js structure.
 
 ## How to install
 
