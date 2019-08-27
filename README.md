@@ -12,7 +12,7 @@ In order to install this example app, you need to install all the dependencies o
 npm install
 ```
 
-The testing setup is currently using mocha for the Backend tests. It needs to be installed globally:
+The testing setup is currently using mocha for the Backend tests. This needs to be installed globally:
 
 ```
 npm install -g mocha
